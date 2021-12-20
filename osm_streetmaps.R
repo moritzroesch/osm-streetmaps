@@ -236,7 +236,7 @@ street_map +
   annotate(geom="text", # creates coordinates annotation
            x=((aoi_bb[1,2] - aoi_bb[1,1]) / 2) + aoi_bb[1,1], # aligns text in middle of x extent
            y=((aoi_bb[2,2] - aoi_bb[2,1]) / 8) + aoi_bb[2,1] - ((aoi_bb[2,2] - aoi_bb[2,1]) / 14), # alignes text at bottom of map (1/8 of total y extent range)
-           label="49.790616°N / 9.943384° E",
+           label="49.790616°N / 9.943384°E",
            color="black",
            size = 12)
 
