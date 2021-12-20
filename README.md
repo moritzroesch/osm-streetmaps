@@ -3,19 +3,6 @@ This repo demonstrates how to create streetmaps based on [OpenStreetMap (OSM)](h
 This repo includes a R script (`osm_streetmaps.R`) which explains how to access and download OSM features (e.g., streets, rivers, rails, etc.) by the usage of the `osmdata` library.
 The script also shows how to display the downloaded OSM data in an appealing way on a `ggplot2` map.
 
-## Examples
-
-#### City label and coordinates created in R
-
-
-#### City label and coordinates created in Word
-
-<table>
-  <tr>
-    <td><img alt="Light" src="output/Radolfzell_example.jpg"></td>
-    <td><img alt="Light" src="output/Würzburg_example.jpg"></td>
-  </tr>
-</table>
 
 ---
 For the map creation the following steps are needed:
@@ -32,5 +19,27 @@ If you choose a big AOI extent and still plot all detailed features (e.g., reall
 
 To create a label with the city/area name use the provided code in (`osm_streetmaps.R`). However, exporting a blank map as PDF and importing it to Word is another option.
 Within Word the label creation can be done by inserting a text field.
+
+## Examples
+
+#### City label and coordinates created in Word
+
+<table>
+  <tr>
+    <td><img alt="Rado1" src="output/Radolfzell_example.jpg"></td>
+    <td><img alt="Wue1" src="output/Würzburg_example.jpg"></td>
+  </tr>
+</table>
+
+#### City label and coordinates created with ggplot
+
+<table>
+  <tr>
+    <td><img alt="Rado2" src="output/radolfzell_example2.jpg"></td>
+    <td><img alt="Wue2" src="output/Würzburg_example2.jpg"></td>
+  </tr>
+</table>
+
+
 
 
