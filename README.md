@@ -35,7 +35,7 @@ Within Word the label creation can be done by inserting a text field.
 
 <table>
   <tr>
-    <td><img alt="Rado2" src="output/radolfzell_example2.jpg"></td>
+    <td><img alt="Rado2" src="output/Radolfzell_example2.jpg"></td>
     <td><img alt="Wue2" src="output/Würzburg_example2.jpg"></td>
   </tr>
 </table>
