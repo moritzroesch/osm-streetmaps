@@ -203,16 +203,45 @@ street_map <- ggplot() +
         plot.background=element_blank())
 street_map
 
-# Save map as PDF
-ggsave(filename="output/Würzburg_example.pdf",
+# Save blank map as PDF
+ggsave(filename="output/Würzburg_blank.pdf",
        width = 210, 
        height = 297, # this fits a vertical DINA4 page, for horizontal switch width and height values
        units = "mm")
 
-# LABEL creation or referencing to Word!
-# Depending on how you want to display your labels (e.g. city name, Coordinates)
-# you can export streetmap without any labels and just add them in Word or
-# PowerPoint. The examples in the repo were created with with Word by adding
+# Create label and coordinates
+
+# The creation of labels within plot is quite tedious since the positions
+# of the labels and transparent box is dependent on the AOI extent (xmin, xmax,
+# ymin, ymax). A easier, faster and more pleasant way is to import the blank
+# map into Word or PowerPoint. There it´s possible to easily add a textfield
+# with the city name and coordinates. The examples in the repo were created with Word by adding
 # a gradually transparent text field (top is 100% transparent, bottom is 0% transparent).
-# Within this you can create the city name and coordinates. A dividing line
-# also looks nice.
+# Within this you can create the city name and coordinates. A dividing line also looks nice.
+# Nevertheless, this code plots the labels and a transparent box with ggplot.
+street_map +
+  annotate(geom="rect", # creates transparent box behind text labels
+           xmin = aoi_bb[1,1],
+           xmax = aoi_bb[1,2],
+           ymin = ((aoi_bb[2,2] - aoi_bb[2,1]) / 8) + aoi_bb[2,1] - ((aoi_bb[2,2] - aoi_bb[2,1]) / 8),
+           ymax = ((aoi_bb[2,2] - aoi_bb[2,1]) / 8) + aoi_bb[2,1] + ((aoi_bb[2,2] - aoi_bb[2,1]) / 16),
+           fill = "white",
+           alpha = 0.7) +
+  annotate(geom="text", # creates city name
+           x=((aoi_bb[1,2] - aoi_bb[1,1]) / 2) + aoi_bb[1,1], # aligns text in middle of x extent
+           y=((aoi_bb[2,2] - aoi_bb[2,1]) / 8) + aoi_bb[2,1], # aligns text at bottom of map (1/8 of total y extent range)
+           label="Würzburg",
+           color="black",
+           size = 14) +
+  annotate(geom="text", # creates coordinates annotation
+           x=((aoi_bb[1,2] - aoi_bb[1,1]) / 2) + aoi_bb[1,1], # aligns text in middle of x extent
+           y=((aoi_bb[2,2] - aoi_bb[2,1]) / 8) + aoi_bb[2,1] - ((aoi_bb[2,2] - aoi_bb[2,1]) / 14), # alignes text at bottom of map (1/8 of total y extent range)
+           label="49.790616°N / 9.943384° E",
+           color="black",
+           size = 12)
+
+# Save map as JPG
+ggsave(filename="output/Würzburg_example2.jpg",
+       width = 210, 
+       height = 297, # this fits a vertical DINA4 page, for horizontal switch width and height values
+       units = "mm")
