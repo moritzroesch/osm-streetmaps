@@ -9,6 +9,7 @@
 ## Date Created: 2021-12-20
 ##
 ## Copyright (c) Moritz Rösch, 2021
+##
 ## Email: moritz.roesch@stud-mail.uni-wuerzburg.de
 ##
 ## ----------------------------------------------------------------------
@@ -98,17 +99,20 @@ available_tags("highway")
 #           - pedestrian (roads mainly for pedestrians in city centers)
 #           - track (agriculture or forestry roads)
 #           - footway (designated footpaths next to streets)
+
 # Key: railway
-available_tags("railway")
 #   Value:  - rail (train rails)
 #           - tram (tram rails)
+available_tags("railway")
+
 # Key: natural
-available_tags("natural")
 #   Value:  - water (every inland water body including lakes, rivers, canals)
+available_tags("natural")
+
 # Key: waterway
-available_tags("waterway")
 #   Value:  - river (displays rivers as a line feature)
 #           - stream (smaller than rivers, also as line feature)
+available_tags("waterway")
 
 # Download osm features
 
